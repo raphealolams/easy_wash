@@ -147,21 +147,21 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-users"></i>
             <span>Customers</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">2</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/customer/all_customer.php"><i class="fa fa-circle-o"></i> Mange Customer</a></li>
-            <li><a href="pages/customer/manage_type.php"><i class="fa fa-circle-o"></i> Add Customer Type</a></li>
+            <li><a href="pages/customer/all_customer.php"><i class="fa fa-user"></i> Mange Customer</a></li>
+            <li><a href="pages/customer/manage_type.php"><i class="fa fa-user"></i> Add Customer Type</a></li>
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-briefcase"></i>
             <span>Drop Off</span>
             <span class="pull-right-container">
               <i class=" label label-primary pull-right">3</i>

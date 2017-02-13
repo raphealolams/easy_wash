@@ -168,8 +168,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Manage Drop Off</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Add Items</a></li>
+            <li><a href="pages/drop off/drop_off.php"><i class="fa fa-circle-o"></i> Manage Drop Off</a></li>
+            <li><a href="pages/drop off/all_items.php"><i class="fa fa-circle-o"></i> Add Items</a></li>
             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Manage Drop of Invoice</a></li>
           </ul>
         </li>

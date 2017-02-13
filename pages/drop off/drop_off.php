@@ -149,7 +149,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-user"></i> Mange Customer</a></li>
+            <li><a href="../../pages/customer/all_customer.php"><i class="fa fa-user"></i> Mange Customer</a></li>
             <li><a href="../../pages/customer/manage_type.php"><i class="fa fa-user"></i> Add Customer Type</a></li>
           </ul>
         </li>
@@ -163,9 +163,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../pages/drop off/drop_off.php"><i class="fa fa-circle-o"></i> Manage Drop Off</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Manage Drop Off</a></li>
             <li><a href="../../pages/drop off/all_items.php"><i class="fa fa-circle-o"></i> Add Items</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Manage Drop of Invoice</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Manage Drop of Invoice</a></li>
           </ul>
         </li>
 
@@ -326,25 +326,29 @@
               <table id="all" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Surname</th>
-                  <th>Other Names</th>
+                  <th>Customer Name</th>
+                  <th>Telphone</th>
                   <th>Gender</th>
-                  <th>Telephone</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Status</th>
+                  <th>Drop Date</th>
+                  <th>Pick Up Date</th>
+                  <th>Address </th>
+                  <th>Customer Type</th>
+                  <th>Initial Payment</th>
+                  <th>Balance</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Ajilore</td>
-                  <td>Raphael Olamide</td>
-                  <td>Male</td>
-                  <td>08062265208</td>
-                  <td>raphealolams@yahoo.com</td>
-                  <td>7, Martins Street, Mile 12</td>
-                  <td>Active</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
                     <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
                 </tr>
@@ -355,7 +359,7 @@
               <div class="modal-dialog">
               <div class="modal-content">
               <div class="modal-header">
-              <h4 class="modal-title">Edit Customer Details </h4>
+              <h4 class="modal-title">Edit Drop Off </h4>
             </div>
             <div class="modal-body">
               <div class="box box-info">
@@ -363,113 +367,6 @@
                   <h3 class="box-title"></h3>
            </div>
            <div class="box-body">
-             <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="other_mname" class="form-control" placeholder="Raphael Olamide">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Select</option>
-            *      <option>Abia</option>
-                  <option>Adamawa</option>
-                  <option>Anambra</option>
-                  <option>Bauchi</option>
-                  <option>Bayelsa</option>
-                  <option>Benue</option>
-                  <option>Borno</option>
-                  <option>Cross-River</option>
-                  <option>Delta</option>
-                  <option>Ebonyi</option>
-                  <option>Edo</option>
-                  <option>Ekiti</option>
-                  <option>Enugu</option>
-                  <option>Gombe</option>
-                  <option>Imo</option>
-                  <option>Jigwa</option>
-                  <option>Kaduna</option>
-                  <option>Kebbi</option>
-                  <option>Kogi</option>
-                  <option>Kwara</option>
-                  <option>Lagos</option>
-                  <option>Nassaarawa</option>
-                  <option>Niger</option>
-                  <option>Ogun</option>
-                  <option>Ondo</option>
-                  <option>Osun</option>
-                  <option>Oyo</option>
-                  <option>Plateau</option>
-                  <option>Rivers</option>
-                  <option>Sokoto</option>
-                  <option>Taraba</option>
-                  <option>Yobe</option>
-                  <option>Zamfara</option>
-                  <option>FCT</option>
-                </select>
-              </div>
-              <br/>
-          <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-          </div>
-            <br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-              <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-              </div>
-              <input type="text" class="form-control" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-            </div>
-            <br/>
-
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" id="exampleInputFile">
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
-              </select>
-            </div>
-            <br/>
                     <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
 
               </form>
@@ -489,6 +386,20 @@
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>
            </div>
+           <table>
+             <table class="table table-responsive table-borderd table-condensed">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Item Category</th>
+                    <th>Item Name</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                  </tr>
+                </thead>
+           </table>
            <div class="box-body">
              <div class="form-group ">
                 <label>Surname Name:</label>

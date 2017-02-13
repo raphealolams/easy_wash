@@ -314,44 +314,7 @@
               <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
-            <div>
-              <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-                  <li><a data-toggle="tab" href="#add">Add New</a></li>
-              </ul>
-            </div>
-            <div class="box-body">
-            <div class="tab-content">
-            <div id="all" class="tab-pane fade in active">
-              <table id="all" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Surname</th>
-                  <th>Other Names</th>
-                  <th>Gender</th>
-                  <th>Telephone</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Ajilore</td>
-                  <td>Raphael Olamide</td>
-                  <td>Male</td>
-                  <td>08062265208</td>
-                  <td>raphealolams@yahoo.com</td>
-                  <td>7, Martins Street, Mile 12</td>
-                  <td>Active</td>
-                  <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" href="../../pages/customer/edit_customer.php"></a>
-                    <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-          <div id="add" class="tab-pane fade">
+          <div id="" class="modal-content">
             <form method="POST" action="">
               <div class="box box-info">
                 <div class="box-header with-border">

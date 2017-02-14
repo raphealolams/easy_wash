@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | </title>
+  <title>Easy Wash| Admin </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -30,10 +30,6 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <?php
-    include '../../pages/connection.php';
-    require_once '../../pages/state.php'
-   ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -153,7 +149,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-user"></i> Mange Customer</a></li>
+            <li><a href="../../pages/customer/all_customer.php"><i class="fa fa-user"></i> Mange Customer</a></li>
             <li><a href="../../pages/customer/manage_type.php"><i class="fa fa-user"></i> Add Customer Type</a></li>
           </ul>
         </li>
@@ -168,7 +164,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../../pages/drop off/drop_off.php"><i class="fa fa-circle-o"></i> Manage Drop Off</a></li>
-            <li><a href="../../pages/drop off/all_items.php"><i class="fa fa-circle-o"></i> Add Items</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Add Items</a></li>
             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Manage Drop of Invoice</a></li>
           </ul>
         </li>
@@ -194,6 +190,11 @@
               <i class="label label-primary pull-right">1</i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <!-- <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> -->
+          </ul>
         </li>
 
         <li class="treeview">
@@ -239,7 +240,7 @@
           <ul class="treeview-menu">
             <li><a href="../../pages/staff/all_staff.php"><i class="fa fa-circle-o"></i> Manage Staff</a></li>
             <li><a href="../../pages/staff/staff_bank.php"><i class="fa fa-circle-o"></i> Staff Bank Details</a></li>
-            <li><a href="../../pages/staff/staff_item.php"><i class="fa fa-circle-o"></i> Add Staff Item</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Add Staff Item</a></li>
           </ul>
         </li>
 
@@ -274,13 +275,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manage Customer
-        <small> Record</small>
+        Add Item
+        <small>Staff </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Customer</a></li>
-        <li class="active">Manage Customer </li>
+        <li><a href="#"><i class="fa fa-share"></i> Staff</a></li>
+        <li class="active">Add Item </li>
       </ol>
     </section>
 
@@ -293,38 +294,31 @@
               <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
-            <div class="nav nav-tabs-custom">
+            <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
                   <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-                  <li><a data-toggle="tab" href="#add">Add New</a></li>
+                  <li><a data-toggle="tab" href="#add">Add New Item</a></li>
               </ul>
             </div>
-
             <div class="box-body">
             <div class="tab-content">
             <div id="all" class="tab-pane fade in active">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Surname</th>
-                  <th>Other Names</th>
-                  <th>Gender</th>
-                  <th>Telephone</th>
-                  <th>Email</th>
-                  <th>Address</th>
+                  <th>Employment Type</th>
+                  <th>Department</th>
+                  <th>Level</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Ajilore</td>
-                  <td>Raphael Olamide</td>
-                  <td>Male</td>
-                  <td>08062265208</td>
-                  <td>raphealolams@yahoo.com</td>
-                  <td>7, Martins Street, Mile 12</td>
-                  <td>Active</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
                     <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
                 </tr>
@@ -335,91 +329,36 @@
               <div class="modal-dialog">
               <div class="modal-content">
               <div class="modal-header">
-              <h4 class="modal-title">Edit Customer Details </h4>
+              <h4 class="modal-title">Edit Staff Bank Details </h4>
             </div>
             <div class="modal-body">
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>
            </div>
-           <form method="post" action="">
            <div class="box-body">
              <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
+                <label>Staff Name:</label>
+                  <select type="text" name="staff_type" class="form-control" value="">
               </div>
               <br/>
 
+                <div class="form-group ">
+                   <label>Department:</label>
+                     <input type="text" name="staff_dept" class="form-control" value="">
+                 </div>
+                 <br/>
+
               <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="other_name" class="form-control" placeholder="Raphael Olamide">
+                  <label>Level:</label>
+                  <input type="text" name="staff_level" class="form-control" value="">
               </div>
               <br/>
 
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" name="gender" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" name="dob" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" name="state" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($state as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
           <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" name="address" rows="3" placeholder="Enter ..."></textarea>
+            <label>Status:</label>
+            <input type="text" name="staff_status" class="form-control" value="">
           </div>
-            <br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-              <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-              </div>
-              <input type="text" class="form-control" name="phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-            </div>
-            <br/>
-
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="image" id="exampleInputFile">
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" name="status" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
-              </select>
-            </div>
             <br/>
                     <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
 
@@ -435,108 +374,57 @@
       </div>
 
           <div id="add" class="tab-pane fade">
-            <form action="add_customer.php" method="post">
+            <form method="POST" action="">
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>
            </div>
            <div class="box-body">
-             <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
-              </div>
-              <br/>
+             <div class="box-body">
+               <div class="form-group ">
+                  <label>Employment Type:</label>
+                    <input type="text" name="staff_type" class="form-control" value="">
+                </div>
+                <br/>
 
-              <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="other_name" class="form-control" placeholder="Raphael Olamide">
-              </div>
-              <br/>
+                  <div class="form-group ">
+                     <label>Department:</label>
+                       <input type="text" name="staff_dept" class="form-control" value="">
+                   </div>
+                   <br/>
 
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" name="gender" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" name="dob" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" name="state" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($state as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
-          <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" name="address" rows="3" placeholder="Enter ..."></textarea>
-          </div>
-            <br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-              <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-              </div>
-              <input type="text" class="form-control" name="phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-            </div>
-            <br/>
-
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
+                <div class="form-group">
+                    <label>Level:</label>
+                    <input type="text" name="staff_level" class="form-control" value="">
+                </div>
+                <br/>
 
             <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="image" id="exampleInputFile">
+              <label>Status:</label>
+              <input type="text" name="staff_status" class="form-control" value="">
             </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" name="status" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
-              </select>
-            </div>
-            <br/>
-                    <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
+              <br/>
+                      <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
 
               </form>
             </div>
+            <!--- box body -->
           </div>
-          <!--/ Tab content -->
+          <!--/ box box info -->
           </div>
-            <!-- /.box-body -->
+            <!-- /. close of second tab -->
           </div>
-          <!-- /.box -->
+          <!-- /.tab content -->
         </div>
-        <!-- /.col -->
+        <!---/. box-body -->
+        </div>
+        <!-- /.box -->
       </div>
+      <!--/.col -->
+    </div>
       <!-- /.row -->
-      </div>
-      </div>
     </section>
     <!-- /.content -->
-
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -560,7 +448,7 @@
       <!-- Stats tab content -->
     </div>
   </aside>
-</div>
+  </div>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
@@ -593,77 +481,10 @@
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false
-    });
-  });
-</script>
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $(".select2").select2();
-
-    //Datemask dd/mm/yyyy
-    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-    //Datemask2 mm/dd/yyyy
-    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-    //Money Euro
-    $("[data-mask]").inputmask();
-
-    //Date range picker
-    $('#reservation').daterangepicker();
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-        {
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment()
-        },
-        function (start, end) {
-          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        }
-    );
-
-    //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    });
-
-    //iCheck for checkbox and radio inputs
-    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-      checkboxClass: 'icheckbox_minimal-blue',
-      radioClass: 'iradio_minimal-blue'
-    });
-    //Red color scheme for iCheck
-    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-      checkboxClass: 'icheckbox_minimal-red',
-      radioClass: 'iradio_minimal-red'
-    });
-    //Flat red color scheme for iCheck
-    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-      checkboxClass: 'icheckbox_flat-green',
-      radioClass: 'iradio_flat-green'
-    });
-
-    //Colorpicker
-    $(".my-colorpicker1").colorpicker();
-    //color picker with addon
-    $(".my-colorpicker2").colorpicker();
-
-    //Timepicker
-    $(".timepicker").timepicker({
-      showInputs: false
     });
   });
 </script>

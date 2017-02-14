@@ -234,33 +234,13 @@
           <a href="#">
             <i class="fa fa-share"></i> <span>Staff</span>
             <span class="pull-right-container">
-              <i class="label label-primary pull-right">1</i>
+              <i class="label label-primary pull-right">3</i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li>
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li><a href="../../pages/staff/all_staff.php"><i class="fa fa-circle-o"></i> Manage Staff</a></li>
+            <li><a href="../../pages/staff/staff_bank.php"><i class="fa fa-circle-o"></i> Staff Bank Details</a></li>
+            <li><a href="../../pages/staff/staff_item.php"><i class="fa fa-circle-o"></i> Add Staff Item</a></li>
           </ul>
         </li>
 
@@ -323,7 +303,7 @@
             <div class="box-body">
             <div class="tab-content">
             <div id="all" class="tab-pane fade in active">
-              <table id="all" class="table table-bordered table-striped">
+              <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Customer Name</th>
@@ -335,11 +315,13 @@
                   <th>Customer Type</th>
                   <th>Initial Payment</th>
                   <th>Balance</th>
+                  <th>Available</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -385,133 +367,170 @@
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>
-           </div>
-           <table>
+                </div>
+
              <table class="table table-responsive table-borderd table-condensed">
                 <thead>
                   <tr>
                     <th>Customer Name</th>
                     <th>Item Category</th>
                     <th>Item Name</th>
-                    <th>Item Name</th>
                     <th>Quantity</th>
                     <th>Unit Price</th>
+                    <th> Discount </th>
                     <th>Total Price</th>
                   </tr>
                 </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="form-group">
+                        <label></label>
+                          <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">Select</option>
+                          </select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <label></label>
+                          <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">Select</option>
+                          </select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <label></label>
+                          <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">Select</option>
+                          </select>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group" >
+                        <label></label>
+                        <input type="number" name="quantity" class="form-control" style="width:100%;">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="text" name="price" class="form-control" style="width:100%;">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <label></label>
+                        <input type="number" name="discount" class="form-control" style="width:100%;">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-group" >
+                        <label></label>
+                        <input type="text" name="total_price" class="form-control"  disabled="disabled" style="width:100%;">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
            </table>
-           <div class="box-body">
-             <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
+           <!--/. End of Table 1 -->
+
+           <table class="table table-responsive table-borderd table-condensed">
+              <thead>
+                <tr>
+                  <th>Deposit</th>
+                  <th>Balance</th>
+                  <th>Comment</th>
+                  <th>Status</th>
+                  <th>Drop Date</th>
+                  <th>Pick Date</th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label></label>
+                      <input type="text" name="deposit" class="form-control" style="width:100%;">
+                    </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                    <label></label>
+                    <input type="text" name="balance" class="form-control"  disabled="disabled" style="width:100%;">
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                     <label></label>
+                       <textarea class="form-control" name="comment" rows="3" placeholder="Enter ..."></textarea>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                      <label></label>
+                        <select name="status" class="form-control select2" style="width: 100%;">
+                          <option selected="selected">Select</option>
+                          <option>Avaliable</option>
+                          <option>Picked</option>
+                        </select>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                      <label></label>
+                      <input type="date" name="drop_date" class="form-control" style="width:100%;">
+                  </div>
+                </td>
+                <td>
+                  <div class="form-group">
+                      <label></label>
+                      <input type="date" name="pick_date" class="form-control" style="width:100%;">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+         </table>
+              <div>
+                <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
               </div>
-              <br/>
+                <br/>
+           <!--/. End of Table -->
+         </form>
+         <!---/. End of Form -->
 
-              <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="other_mname" class="form-control" placeholder="Raphael Olamide">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Select</option>
-            *      <option>Abia</option>
-                  <option>Adamawa</option>
-                  <option>Anambra</option>
-                  <option>Bauchi</option>
-                  <option>Bayelsa</option>
-                  <option>Benue</option>
-                  <option>Borno</option>
-                  <option>Cross-River</option>
-                  <option>Delta</option>
-                  <option>Ebonyi</option>
-                  <option>Edo</option>
-                  <option>Ekiti</option>
-                  <option>Enugu</option>
-                  <option>Gombe</option>
-                  <option>Imo</option>
-                  <option>Jigwa</option>
-                  <option>Kaduna</option>
-                  <option>Kebbi</option>
-                  <option>Kogi</option>
-                  <option>Kwara</option>
-                  <option>Lagos</option>
-                  <option>Nassaarawa</option>
-                  <option>Niger</option>
-                  <option>Ogun</option>
-                  <option>Ondo</option>
-                  <option>Osun</option>
-                  <option>Oyo</option>
-                  <option>Plateau</option>
-                  <option>Rivers</option>
-                  <option>Sokoto</option>
-                  <option>Taraba</option>
-                  <option>Yobe</option>
-                  <option>Zamfara</option>
-                  <option>FCT</option>
-                </select>
-              </div>
-              <br/>
-          <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-          </div>
-            <br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-              <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-              </div>
-              <input type="text" class="form-control" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-            </div>
-            <br/>
-
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" id="exampleInputFile">
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
-              </select>
-            </div>
-            <br/>
-                    <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-
-              </form>
-            </div>
+         <table id="" class="table table-bordered table-striped">
+           <thead>
+           <tr>
+             <th>Surname</th>
+             <th>Other Names</th>
+             <th>Gender</th>
+             <th>Telephone</th>
+             <th>Email</th>
+             <th>Address</th>
+             <th>Status</th>
+             <th>Action</th>
+           </tr>
+           </thead>
+           <tbody>
+           <tr>
+             <td>Ajilore</td>
+             <td>Raphael Olamide</td>
+             <td>Male</td>
+             <td>08062265208</td>
+             <td>raphealolams@yahoo.com</td>
+             <td>7, Martins Street, Mile 12</td>
+             <td>Active</td>
+             <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
+               <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
+           </tr>
+         </table>
+       </div>
+       <!--/. End of view Add item -->
+       </div>
+       <!--/. End of Box-info -->
           </div>
           <!--/ Tab content -->
           </div>

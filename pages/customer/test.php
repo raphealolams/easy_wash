@@ -293,57 +293,17 @@
               <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
-            <div class="nav nav-tabs-custom">
-              <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#all">All</a></li>
-                  <li><a data-toggle="tab" href="#add">Add New</a></li>
-              </ul>
-            </div>
-
-            <div class="box-body">
-            <div class="tab-content">
-            <div id="all" class="tab-pane fade in active">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Surname</th>
-                  <th>Other Names</th>
-                  <th>Gender</th>
-                  <th>Telephone</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td>Male</td>
-                  <td>08062265208</td>
-                  <td>raphealolams@yahoo.com</td>
-                  <td>7, Martins Street, Mile 12</td>
-                  <td>Active</td>
-                  <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
-                    <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
-                </tr>
-              </table>
-            </div>
-
-          <div id="add" class="tab-pane fade">
-            <form action="add_customer.php" method="post" enctype="multipart/form-data">
-              <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title"></h3>
-           </div>
+              <form action="test_crud.php" method="post" >
            <div class="box-body">
              <div class="form-group ">
                 <label>Surname Name:</label>
                   <input type="text" name="surname" class="form-control" placeholder="Adeoye">
               </div>
               <br/>
-
+               <?php
+        $k = date('Y-m-d H:i:s');
+        echo $k;
+            ?>
               <div class="form-group">
                   <label>Other Name:</label>
                   <input type="text" name="other_name" class="form-control" placeholder="Raphael Olamide">
@@ -359,24 +319,7 @@
                 </select>
               </div>
               <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" name="dob" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" name="state" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($state as $key):
-                    echo '<option value="'.$key.'">'.$key.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
+            
           <div class="form-group">
              <label>Address</label>
                <textarea class="form-control" name="address" rows="3" placeholder="Enter ..."></textarea>
@@ -390,48 +333,12 @@
             </div>
             <br/>
 
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="image" id="exampleInputFile">
-            </div>
-            <br/>
-               
-               <div class="form-group">
-              <label>Customer Type</label>
-              <select class="form-control select2" name="customer_type" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>Regular</option>
-                <option>Standard</option>
-                <option>VIP</option>
-                <option>VVIP</option>
-              </select>
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" name="status" style="width: 100%;">
-                <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
-              </select>
-            </div>
-            <br/>
+        
                     <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
 
-              </form>
-            </div>
-          </div>
+               </div>
+</form>
+
           <!--/ Tab content -->
           </div>
             <!-- /.box-body -->
@@ -439,14 +346,7 @@
           <!-- /.box -->
         </div>
         <!-- /.col -->
-      </div>
-      <!-- /.row -->
-      </div>
-      </div>
-    </section>
-    <!-- /.content -->
-
-  </div>
+    
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -578,3 +478,4 @@
 </script>
 </body>
 </html>
+          

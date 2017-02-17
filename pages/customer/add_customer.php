@@ -1,6 +1,6 @@
-<?php
+<?php  
 
-  require "../connection.php";
+require "../connection.php";
 
 $a = $_POST['surname'];
 $b = $_POST['other_name'];
@@ -12,8 +12,9 @@ $g = $_POST['phone_number'];
 $h = $_POST['email'];
 $i = $_POST['customer_type'];
 $j = $_POST['status'];
-$k = getdate();
-$folderName = "uploads";
+$k = date('Y-m-d H:i:s');
+$m = $_POST['k'];
+$folderName = 'uploads';
 
 
 //IMAGES
@@ -22,11 +23,10 @@ if (isset($_FILES))
   move_uploaded_file($_FILES["image"]["tmp_name"], getcwd() . "/" . $folderName . "/" . $_FILES["image"]["name"]);
 }
 
-
 //SQL QUERY
 $image = $_FILES["image"]["name"];
 try{
-    $sql = "INSERT INTO customer (surname,other_name,gender,dob,state,address,phone_number,email,customer_type,status,create_date) VALUES(:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k)";
+    $sql = "INSERT INTO customer (surname,other_name,gender,dob,state,address,phone_number,email,image,customer_type,status,create_date) VALUES(:a, :b, :c, :d, :e, :f, :g, :h, :image, :i, :j, :k)";
 
 $stmt = $pdo->prepare($sql);
 
@@ -40,6 +40,7 @@ $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':f', $_POST['address']);
     $stmt->bindParam(':g', $_POST['phone_number']);
     $stmt->bindParam(':h', $_POST['email']);
+    $stmt->bindParam(':image', $_POST['image']);
     $stmt->bindParam(':i', $_POST['customer_type']);
     $stmt->bindParam(':j', $_POST['status']);
     $stmt->bindParam(':k', $_POST['create_date']);

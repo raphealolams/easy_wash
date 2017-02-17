@@ -14,6 +14,7 @@ $i = $_POST['customer_type'];
 $j = $_POST['status'];
 $k = date('Y-m-d H:i:s');
 $m = $_POST['k'];
+
 $folderName = 'uploads';
 
 
@@ -40,7 +41,7 @@ $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':f', $_POST['address']);
     $stmt->bindParam(':g', $_POST['phone_number']);
     $stmt->bindParam(':h', $_POST['email']);
-    $stmt->bindParam(':image', $_POST['image']);
+    $stmt->bindParam(':image',['image']);
     $stmt->bindParam(':i', $_POST['customer_type']);
     $stmt->bindParam(':j', $_POST['status']);
     $stmt->bindParam(':k', $_POST['create_date']);

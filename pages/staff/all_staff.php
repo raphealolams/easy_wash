@@ -214,7 +214,7 @@ include '../header.php';
     </div>
 
           <div id="add" class="tab-pane fade">
-            <form method="POST" action="">
+            <form action="save_staff.php" method="POST" enctype="multipart/form-data">
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>

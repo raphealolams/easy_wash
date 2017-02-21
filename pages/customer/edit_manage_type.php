@@ -1,16 +1,16 @@
 <?php
 require '../../pages/connection.php';
 
-$a = $_POST['customer_type_name'];
+$a = $_POST['customer_type'];
 
 
 try{
     
-    $sql = "INSERT INTO customer_type (customer_type_name,create_time) VALUES (:a, NOW())";
+    $sql = "UPDATE customer_type SET customer_type_name=?, edit_time=NOW() WHERE customer_type_id=?";
     
     $stmt = $pdo->prepare($sql);
     
-    $stmt->bindParam(':a', $_POST['customer_type_name']);
+    $stmt->bindParam(':a', $_POST['customer_type']);
     $stmt->execute();
     header('location: manage_type.php');
     

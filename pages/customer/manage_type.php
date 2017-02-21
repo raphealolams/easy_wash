@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../header.php';
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -43,19 +43,25 @@ include '../header.php';
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Ajilore</td>
-                  <td><a href="" class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
+                    <?php
+                    $sql = $pdo->prepare("SELECT * FROM customer_type");
+                    $sql->execute();
+                    while($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                        ?>
+                  <td><?php echo $row['customer_type_name'];?></td>
+                  <td><a href="#mymodal?id=<?php echo $row['customer_type_id']; ?>" class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
                     <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
                 </tr>
+                    <?php }?>
               </table>
             </div>
 
           <div id="add" class="tab-pane fade">
-            <form method="POST" action="">
+            <form method="POST" action="add_customer_type">
               <div class="box box-info">
                 <div class="box-header with-border">
                   <h3 class="box-title"></h3>
-           </div>
+                </div>
            <div class="box-body">
              <div class="form-group ">
                 <label>Customer Type Name:</label>
@@ -64,12 +70,14 @@ include '../header.php';
 
 
                   <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-
+               </div>
+                </div>
               </form>
-            </div>
+                </div>
+
           </div>
-          </div>
-                          <div id="mymodal" class="modal fade" role="dialog">
+              <!--/ Tab content -->
+                <div id="mymodal" class="modal fade" role="dialog">
 
                           <div class="modal-dialog">
                           <div class="modal-content">
@@ -77,31 +85,25 @@ include '../header.php';
                           <h4 class="modal-title">Edit Customer Type </h4>
                         </div>
                         <div class="modal-body">
-                          <form method="POST" action="">
+                          <form method="POST" action="edit_manage_type.php">
                             <div class="box box-info">
                               <div class="box-header with-border">
                                 <h3 class="box-title"></h3>
-                         </div>
+                            </div>
                          <div class="box-body">
                            <div class="form-group ">
                               <label>Customer Type Name:</label>
-                                <input type="text" name="customer_type_name" class="form-control" placeholder="Regular">
+                                <input type="text" name="customer_type" class="form-control">
                             </div>
 
                                 <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-                            </form>
-                          </div>
-                        </div>
-                        </div>
+                                </div>
                         <div class="modal-footer">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
-                    </div>
+                            </form>
                   </div>
-
-          </div>
-              <!--/ Tab content -->
           </div>
             <!-- /.box-body -->
         </div>

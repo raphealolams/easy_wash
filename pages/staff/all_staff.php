@@ -44,174 +44,36 @@ include '../header.php';
                   <th>Gender</th>
                   <th> Date of Birth</th>
                   <th>Telephone</th>
-                  <th>Email</th>
                   <th>Department</th>
                   <th>Staff Level</th>
+                  <th>Qualification</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                     <?php
+                        $sql = $pdo->prepare("SELECT * FROM staff");
+                        $sql->execute();
+                        while($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                        ?>
                 <tr>
-                  <td>Ajilore</td>
-                  <td>Raphael Olamide</td>
-                  <td>Male</td>
-                  <td>08062265208</td>
-                  <td>raphealolams@yahoo.com</td>
-                  <td>7, Martins Street, Mile 12</td>
-                  <td>Active</td>
-                  <td></td>
-                  <td></td>
+                  <td><?php echo $row['staff_surname'];?></td>
+                  <td><?php echo $row['staff_othername'];?></td>
+                  <td><?php echo $row['staff_gender'];?></td>
+                  <td><?php echo $row['staff_dob'];?></td>
+                  <td><?php echo $row['staff_phone_number'];?></td>
+                  <td><?php echo $row['staff_dept'];?></td>
+                  <td><?php echo $row['staff_level'];?></td>
+                  <td><?php echo $row['highest_qualification'];?></td>
+                  <td><?php echo $row['staff_status'];?></td>
                   <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
-                    <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
+                    <a class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
                 </tr>
+                    <?php }?>
+                  </tbody>
               </table>
             </div>
-
-            <div id="mymodal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-header">
-              <h4 class="modal-title">Edit Staff Details </h4>
-            </div>
-            <div class="modal-body">
-              <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title"></h3>
-           </div>
-           <div class="box-body">
-             <form method="post"action="">
-             <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="staff_surname" class="form-control" placeholder="Adeoye">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="staff_othername" class="form-control" placeholder="Raphael Olamide">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" name="staff_gender" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" name="staff_dob" class="form-control">
-              </div>
-              <br/>
-
-              <div class="input-group">
-                <div class="input-group-addon">
-                <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-                </div>
-                <input type="text" class="form-control" name="staff_phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-              </div>
-              <br/>
-
-              <div class="input-group">
-                <div class="input-group-addon">
-                <i class="">Email @</i>
-                </div>
-                <input type="email" class="form-control" name="staff_email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Nationality:</label>
-                <select class="form-control select2" name="staff_nationality" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($country as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" name="staff_state" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($state as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
-
-          <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" name="staff_address" rows="3" placeholder="Enter ..."></textarea>
-          </div>
-            <br/>
-
-            <div class="form-group">
-                <label>Highest Education Qualification:</label>
-                <input type="text" name="highest_qualification" class="form-control" placeholder="Raphael Olamide">
-            </div>
-            <br/>
-
-              <div class="form-group">
-                <label>Staff Employment Type</label>
-                <select class="form-control select2" name="staff_employment_type" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                </select>
-            </div>
-            <br/>
-
-              <div class="form-group">
-                <label>Staff Department</label>
-                <select class="form-control select2" name="staff_dept" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                </select>
-            </div>
-            <br/>
-
-              <div class="form-group">
-                <label>Staff Level</label>
-                <select class="form-control select2" name="staff_level" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                </select>
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <div class="form-group">
-                <label>Staff Status</label>
-                <select class="form-control select2" name="staff_status" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                </select>
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="staff_image" id="exampleInputFile">
-            </div>
-            <br/>
-                    <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-
-              </form>
-              </div>
-            </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
           <div id="add" class="tab-pane fade">
             <form action="save_staff.php" method="POST" enctype="multipart/form-data">
@@ -222,19 +84,19 @@ include '../header.php';
            <div class="box-body">
              <div class="form-group ">
                 <label>Surname Name:</label>
-                  <input type="text" name="staff_surname" class="form-control" placeholder="Adeoye">
+                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
               </div>
               <br/>
 
               <div class="form-group">
                   <label>Other Name:</label>
-                  <input type="text" name="staff_othername" class="form-control" placeholder="Raphael Olamide">
+                  <input type="text" name="othername" class="form-control" placeholder="Raphael Olamide">
               </div>
               <br/>
 
               <div class="form-group">
                 <label>Gender</label>
-                <select class="form-control select2" name="staff_gender" style="width: 100%;">
+                <select class="form-control select2" name="gender" style="width: 100%;">
                   <option selected="selected">Select</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -244,7 +106,7 @@ include '../header.php';
 
               <div class="form-group">
                 <label>Date Of Birth:</label>
-                <input type="date" name="staff_dob" class="form-control">
+                <input type="date" name="dob" class="form-control">
               </div>
               <br/>
 
@@ -252,7 +114,7 @@ include '../header.php';
                 <div class="input-group-addon">
                 <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
                 </div>
-                <input type="text" class="form-control" name="staff_phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
+                <input type="text" class="form-control" name="phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
               </div>
               <br/>
 
@@ -260,16 +122,16 @@ include '../header.php';
                 <div class="input-group-addon">
                 <i class="">Email @</i>
                 </div>
-                <input type="email" class="form-control" name="staff_email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
               </div>
               <br/>
 
               <div class="form-group">
                 <label>Nationality:</label>
-                <select class="form-control select2" name="staff_nationality" style="width: 100%;">
+                <select class="form-control select2" name="nationality" style="width: 100%;">
                   <option selected="selected">Select</option>
-                  <?php foreach ($country as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
+                    <?php foreach ($country as $key => $value):
+                    echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
                     endforeach;
                     ?>
                 </select>
@@ -278,11 +140,11 @@ include '../header.php';
 
               <div class="form-group">
                 <label>State of Origin</label>
-                <select class="form-control select2" name="staff_state" style="width: 100%;">
+                <select class="form-control select2" name="state" style="width: 100%;">
                   <option selected="selected">Select</option>
                   <?php
                     foreach($state as $key => $value):
-                      echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
+                      echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
                     endforeach;
                     ?>
                 </select>
@@ -291,19 +153,19 @@ include '../header.php';
 
           <div class="form-group">
              <label>Address</label>
-               <textarea class="form-control" name="staff_address" rows="3" placeholder="Enter ..."></textarea>
+               <textarea class="form-control" name="address" rows="3" placeholder="Enter ..."></textarea>
           </div>
             <br/>
 
             <div class="form-group">
                 <label>Highest Education Qualification:</label>
-                <input type="text" name="highest_qualification" class="form-control" placeholder="Raphael Olamide">
+                <input type="text" name="qualification" class="form-control" placeholder="Raphael Olamide">
             </div>
             <br/>
 
               <div class="form-group">
                 <label>Staff Employment Type</label>
-                <select class="form-control select2" name="staff_employment_type" style="width: 100%;">
+                <select class="form-control select2" name="employment_type" style="width: 100%;">
                   <option selected="selected">Select</option>
                 </select>
             </div>
@@ -311,7 +173,7 @@ include '../header.php';
 
               <div class="form-group">
                 <label>Staff Department</label>
-                <select class="form-control select2" name="staff_dept" style="width: 100%;">
+                <select class="form-control select2" name="dept" style="width: 100%;">
                   <option selected="selected">Select</option>
                 </select>
             </div>
@@ -319,7 +181,7 @@ include '../header.php';
 
               <div class="form-group">
                 <label>Staff Level</label>
-                <select class="form-control select2" name="staff_level" style="width: 100%;">
+                <select class="form-control select2" name="level" style="width: 100%;">
                   <option selected="selected">Select</option>
                 </select>
             </div>
@@ -328,7 +190,7 @@ include '../header.php';
             <div class="form-group">
               <div class="form-group">
                 <label>Staff Status</label>
-                <select class="form-control select2" name="staff_status" style="width: 100%;">
+                <select class="form-control select2" name="status" style="width: 100%;">
                   <option selected="selected">Select</option>
                 </select>
             </div>
@@ -336,7 +198,7 @@ include '../header.php';
 
             <div class="form-group">
                  <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="staff_image" id="exampleInputFile">
+                 <input type="file" name="image" id="exampleInputFile">
             </div>
             <br/>
                     <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />

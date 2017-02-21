@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../header.php';
 ?>
   <!-- Content Wrapper. Contains page content -->
@@ -57,7 +57,7 @@ include '../header.php';
                         <tr>
                         <td><?php echo $result['surname'];?></td>
                         <td><?php echo $result['other_name'];?></td>
-                        <td><?php echo $result['gender'];?></td> 
+                        <td><?php echo $result['gender'];?></td>
                         <td><?php echo $result['phone_number'];?></td>
                         <td><?php echo $result['email'];?></td>
                         <td><?php echo $result['address'];?></td>
@@ -67,10 +67,10 @@ include '../header.php';
                         </tr>
                        <?php } ?>
                      </tbody>
-                
+
                  </table>
                 </div>
-                    
+
                  <div id="mymodal" class="modal fade" role="dialog">
          <form action="edit_customer.php" method="post" enctyp="multipart/form-data">
               <div class="modal-dialog">
@@ -154,10 +154,6 @@ include '../header.php';
               <label>Status</label>
               <select class="form-control select2" name="status" style="width: 100%;">
                 <option selected="selected">Select</option>
-                <option>New</option>
-                <option>Active</option>
-                <option>Inactive</option>
-                <option>Passive</option>
               </select>
             </div>
             <br/>
@@ -173,7 +169,7 @@ include '../header.php';
                      </form>
                 </div>
           <!--- END OF MODAL -->
-                
+
           <div id="add" class="tab-pane fade">
             <form action="add_customer.php" method="post" enctype="multipart/form-data">
               <div class="box box-info">
@@ -246,15 +242,21 @@ include '../header.php';
                  <input type="file" name="image" id="exampleInputFile">
             </div>
             <br/>
-               
+
                <div class="form-group">
               <label>Customer Type</label>
               <select class="form-control select2" name="customer_type" style="width: 100%;">
                 <option selected="selected">Select</option>
-                <option>Regular</option>
-                <option>Standard</option>
-                <option>VIP</option>
-                <option>VVIP</option>
+                <?php
+                $sql = "SELECT customer_type_name FROM customer_type";
+                $stmt = $pdo->prepare($sql);
+                          $stmt->execute();
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                if ($stmt->rowCount() > 0) { ?>
+                    <?php foreach ($results as $row) { ?>
+                      <option value="<?php echo $row['customer_type_name']; ?>"><?php echo $row['customer_type_name']; ?></option>
+                    <?php } ?>
+                <?php } ?>
               </select>
             </div>
             <br/>
@@ -271,7 +273,8 @@ include '../header.php';
             </div>
             <br/>
                     <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-
+                  </div>
+                </div>
               </form>
             </div>
           <!--/ Tab content -->
@@ -283,7 +286,6 @@ include '../header.php';
         <!-- /.col -->
       </div>
       <!-- /.row -->
-      </div>
       </div>
     </section>
     <!-- /.content -->

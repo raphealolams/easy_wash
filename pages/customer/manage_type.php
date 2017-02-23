@@ -47,12 +47,45 @@ include '../header.php';
                     $sql = $pdo->prepare("SELECT * FROM customer_type");
                     $sql->execute();
                     while($row = $sql->fetch(PDO::FETCH_ASSOC)){
-                        ?>
+                      ?>
                   <td><?php echo $row['customer_type_name'];?></td>
-                  <td><a href="#mymodal?id=<?php echo $row['customer_type_id']; ?>" class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
-                    <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
+                  <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal<?php echo $row['customer_type_id'];?>"></button>
+                  <button class="btn btn-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#mymodal<?php echo $row['customer_type_id'];?>"></button></td>
                 </tr>
-                    <?php }?>
+
+                <div id="mymodal<?php echo $row['customer_type_id'];?>" class="modal fade" role="dialog">
+
+                          <div class="modal-dialog">
+                          <div class="modal-content">
+                          <div class="modal-header">
+                          <h4 class="modal-title">Edit Customer Type </h4>
+                        </div>
+                        <div class="modal-body">
+                          <form action="edit_manage_type.php" method="POST">
+                            <div class="box box-info">
+                              <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                            </div>
+                         <div class="box-body">
+                          <input type="hidden" name="id" value="<?php echo $row['customer_type_id'];?>">
+                           <div class="form-group ">
+                              <label>Customer Type Name:</label>
+                                <input type="text" name="type" value="<?php echo $row['customer_type_name'];?>" class="form-control">
+                            </div>
+                                <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
+                                </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                      <?php } ?>
+                            </form>
+                  </div>
+          </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
               </table>
             </div>
 
@@ -77,43 +110,50 @@ include '../header.php';
 
           </div>
               <!--/ Tab content -->
-                <div id="mymodal" class="modal fade" role="dialog">
-
-                          <div class="modal-dialog">
-                          <div class="modal-content">
-                          <div class="modal-header">
-                          <h4 class="modal-title">Edit Customer Type </h4>
-                        </div>
-                        <div class="modal-body">
-                          <form method="POST" action="edit_manage_type.php">
-                            <div class="box box-info">
-                              <div class="box-header with-border">
-                                <h3 class="box-title"></h3>
-                            </div>
-                         <div class="box-body">
-                           <div class="form-group ">
-                              <label>Customer Type Name:</label>
-                                <input type="text" name="customer_type" class="form-control">
-                            </div>
-
-                                <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-                                </div>
-                        <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                            </form>
-                  </div>
-          </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
+</div>
         <!-- /.col -->
       </div>
+    </div>
       <!-- /.row -->
+    </div>
     </section>
     <!-- /.content -->
+    <script type="text/javascript">
+$(function() {
+
+
+$(".delbutton").click(function(){
+
+//Save the link in a variable called element
+var element = $(this);
+
+//Find the id of the link that was clicked
+var del_id = element.attr("id");
+
+//Built a url to send
+var info = 'id=' + del_id;
+ if(confirm("Sure you want to delete this Product? There is NO undo!"))
+		  {
+
+ $.ajax({
+   type: "GET",
+   url: "deleteproduct.php",
+   data: info,
+   success: function(){
+
+   }
+ });
+         $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
+		.animate({ opacity: "hide" }, "slow");
+
+ }
+
+return false;
+
+});
+
+});
+</script>
   </div>
   <!-- /.content-wrapper -->
 <?php

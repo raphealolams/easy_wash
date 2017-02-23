@@ -62,113 +62,117 @@ include '../header.php';
                         <td><?php echo $result['email'];?></td>
                         <td><?php echo $result['address'];?></td>
                         <td><?php echo $result['status'];?></td>
-                        <td><a class="btn-form-modal btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal"></a>
-                        <a href= "" class="btn-form btn btn-danger glyphicon glyphicon-trash"></a></td>
+                        <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal<?php echo $result['customer_id'];?>"></button>
+                        <td></td>
+</td>
                         </tr>
+
+                        <div id="mymodal<?php echo $result['customer_id'];?>" class="modal fade" role="dialog">
+                       <form action="edit_customer.php" method="post" enctyp="multipart/form-data">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title">Edit Customer Details </h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="box box-info">
+                              <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                         </div>
+                         <div class="box-body">
+                           <div class="form-group ">
+                              <label>Surname Name:</label>
+                                <input type="text" name="surname" class="form-control" value="<?php echo $result['surname'];?>">
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                                <label>Other Name:</label>
+                                <input type="text" name="other_name" class="form-control" value="<?php echo $result['other_name'];?>">
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                              <label>Gender</label>
+                              <select class="form-control select2" name="gender" style="width: 100%;">
+                                <option value="<?php echo $result['gender'];?>"><?php echo $result['gender'];?></option>
+                                <<option value=""></option>
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                              <label>Date Of Birth:</label>
+                              <input type="date" name="dob" class="form-control" value="<?php echo $result['dob'];?>">
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                              <label>State of Origin</label>
+                              <select class="form-control select2" name="state" style="width: 100%;">
+                                <option value="<?php echo $result['state'];?>"><?php echo $result['state'];?></option>
+                                <?php foreach ($state as $key => $value):
+                                  echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
+                                  endforeach;
+                                  ?>
+                              </select>
+                            </div>
+                            <br/>
+                        <div class="form-group">
+                           <label>Address</label>
+                             <textarea class="form-control" name="address" rows="3" value="<?php echo $result['address'];?>"></textarea>
+                        </div>
+                          <br/>
+                          <div class="input-group">
+                            <div class="input-group-addon">
+                            <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
+                            </div>
+                            <input type="text" class="form-control" name="phone_number" value="<?php echo $result['phone_number'];?>">
+                          </div>
+                          <br/>
+
+                          <div class="input-group">
+                            <div class="input-group-addon">
+                            <i class="">Email @</i>
+                            </div>
+                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" value="<?php echo $result['email'];?>">
+                          </div>
+                          <br/>
+
+                          <div class="form-group">
+                               <label for="exampleInputFile">Picture</label>
+                               <input type="file" name="image" id="exampleInputFile">
+                          </div>
+                          <br/>
+
+                          <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-control select2" name="status" style="width: 100%;">
+                              <<option value="<?php echo $result['status'];?>"></option>
+                              <option selected="selected">Select</option>
+                            </select>
+                          </div>
+                          <br/>
+                                  <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
+                             </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                                   </form>
+                              </div>
+                        <!--- END OF MODAL -->
                        <?php } ?>
                      </tbody>
 
                  </table>
                 </div>
 
-                 <div id="mymodal" class="modal fade" role="dialog">
-         <form action="edit_customer.php" method="post" enctyp="multipart/form-data">
-              <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-header">
-              <h4 class="modal-title">Edit Customer Details </h4>
-            </div>
-            <div class="modal-body">
-              <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title"></h3>
-           </div>
-           <div class="box-body">
-             <div class="form-group ">
-                <label>Surname Name:</label>
-                  <input type="text" name="surname" class="form-control" placeholder="Adeoye">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                  <label>Other Name:</label>
-                  <input type="text" name="other_name" class="form-control" placeholder="Raphael Olamide">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Gender</label>
-                <select class="form-control select2" name="gender" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>Date Of Birth:</label>
-                <input type="date" name="dob" class="form-control">
-              </div>
-              <br/>
-
-              <div class="form-group">
-                <label>State of Origin</label>
-                <select class="form-control select2" name="state" style="width: 100%;">
-                  <option selected="selected">Select</option>
-                  <?php foreach ($state as $key => $value):
-                    echo '<option value="'.$key.'">'.$value.'</option>'; //close your tags!!
-                    endforeach;
-                    ?>
-                </select>
-              </div>
-              <br/>
-          <div class="form-group">
-             <label>Address</label>
-               <textarea class="form-control" name="address" rows="3" placeholder="Enter ..."></textarea>
-          </div>
-            <br/>
-            <div class="input-group">
-              <div class="input-group-addon">
-              <label>Phone</label><i class="glyphicon glyphicon-phone"></i>
-              </div>
-              <input type="text" class="form-control" name="phone_number" data-inputmask='"mask": "(9999) 999-9999"' data-mask>
-            </div>
-            <br/>
-
-            <div class="input-group">
-              <div class="input-group-addon">
-              <i class="">Email @</i>
-              </div>
-              <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="someone@yahoo.com">
-            </div>
-            <br/>
-
-            <div class="form-group">
-                 <label for="exampleInputFile">Picture</label>
-                 <input type="file" name="image" id="exampleInputFile">
-            </div>
-            <br/>
-
-            <div class="form-group">
-              <label>Status</label>
-              <select class="form-control select2" name="status" style="width: 100%;">
-                <option selected="selected">Select</option>
-              </select>
-            </div>
-            <br/>
-                    <input type="submit" name="submit" class="btn btn-success"  value="Submit"   />
-               </div>
-                </div>
-              </div>
-            </div>
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-                     </form>
-                </div>
-          <!--- END OF MODAL -->
 
           <div id="add" class="tab-pane fade">
             <form action="add_customer.php" method="post" enctype="multipart/form-data">

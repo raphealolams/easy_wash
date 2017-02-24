@@ -45,6 +45,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
+<script src="../../dist/js/jquery.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable();

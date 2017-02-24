@@ -50,7 +50,7 @@ include '../header.php';
                       ?>
                   <td><?php echo $row['customer_type_name'];?></td>
                   <td><button class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="modal" data-target="#mymodal<?php echo $row['customer_type_id'];?>"></button>
-                  <button class="btn btn-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#mymodal<?php echo $row['customer_type_id'];?>"></button></td>
+                  <a class="delete btn btn-danger glyphicon glyphicon-trash" id="<?php echo $row['customer_type_id']; ?>" href="#" title="Delete"></a></td>
                 </tr>
 
                 <div id="mymodal<?php echo $row['customer_type_id'];?>" class="modal fade" role="dialog">
@@ -118,42 +118,29 @@ include '../header.php';
     </div>
     </section>
     <!-- /.content -->
-    <script type="text/javascript">
-$(function() {
-
-
-$(".delbutton").click(function(){
-
-//Save the link in a variable called element
-var element = $(this);
-
-//Find the id of the link that was clicked
-var del_id = element.attr("id");
-
-//Built a url to send
-var info = 'id=' + del_id;
- if(confirm("Sure you want to delete this Product? There is NO undo!"))
-		  {
-
- $.ajax({
-   type: "GET",
-   url: "deleteproduct.php",
-   data: info,
-   success: function(){
-
+  <script src="../../dist/js/jquery.js"></script>
+  <script type="text/javascript">
+  $(function() {
+  $(".delete").click(function(){
+  var element = $(this);
+  var del_id = element.attr("id");
+  var info = 'id=' + del_id;
+  if(confirm("Are you sure you want to delete this?"))
+  {
+   $.ajax({
+     type: "POST",
+     url: "delete_customer_type.php",
+     data: info,
+     success: function(){
    }
- });
-         $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
-		.animate({ opacity: "hide" }, "slow");
-
- }
-
-return false;
-
-});
-
-});
-</script>
+  });
+    $(this).parents(".show").animate({ backgroundColor: "#003" }, "slow")
+    .animate({ opacity: "hide" }, "slow");
+   }
+  return false;
+  });
+  });
+  </script>
   </div>
   <!-- /.content-wrapper -->
 <?php

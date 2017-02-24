@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 require "../connection.php";
 
@@ -43,7 +43,7 @@ $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':i', $_POST['customer_type']);
     $stmt->bindParam(':j', $_POST['status']);
 
-//Run the STMT 
+//Run the STMT
 $stmt->execute();
 header("location: all_customer.php");
 }  catch(PDOException $error){
@@ -52,7 +52,7 @@ header("location: all_customer.php");
 
 }
 
-unset($pdo);  
+unset($pdo);
 
 
 ?>

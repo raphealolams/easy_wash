@@ -1,16 +1,26 @@
 <?php
+include_once '../../pages/connetion.php';
 
-include '../../pages/connection.php';
+// try {
+//   if($_POST['del_id'])
+//   {
+//    $id = $_POST['del_id'];
+//    $stmt=$db_con->prepare("DELETE FROM customer_type WHERE customer_type_id=:id");
+//    $stmt->execute(array(':id'=>$id));
+//   }
+// }
+// catch{
+//
+// }
 
-try{
-
-  $sql = $pdo->prepare("DELETE FROM customer_type WHERE customer_type_id= :id");
-  $sql->bindParam(':id');
-  $result->execute();
-} catch(PDOException $error){
-
-    die("ERROR: Could not able to execute $sql. " . $error->getMessage());
-
+try {
+	$sql = "DELETE FROM customer_type WHERE customer_type_id = :id";
+	$query = $pdo->prepare($sql);
+	$query->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
+	$query->execute();
 }
-unset($pdo);
- ?>
+catch (PDOException $e) {
+	echo 'PDOException : '.  $e->getMessage();
+}
+
+?>
